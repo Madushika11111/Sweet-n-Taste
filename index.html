@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet n Taste 🍯 Authentic Sri Lankan Kavili</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif+Sinhala:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B00;
+    --gold: #FFD700;
+    --deep-red: #C0392B;
+    --cream: #FFF8EE;
+    --dark: #1A0A00;
+    --green: #2E7D32;
+    --brown: #5D3A1A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--dark);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.6rem 2rem;
+    box-shadow: 0 2px 20px rgba(255,107,0,0.4);
+  }
+  .nav-logo-wrap { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+  .nav-logo-svg { width: 44px; height: 44px; }
+  .nav-logo-text .name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--gold); display: block; }
+  .nav-logo-text .tagline { font-size: 0.6rem; letter-spacing: 2px; color: rgba(255,215,0,0.5); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--saffron); color: white !important; padding: 0.45rem 1.1rem; border-radius: 30px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--deep-red) !important; }
+
+  /* ALL DAYS BAR */
+  .alldays-bar {
+    background: linear-gradient(90deg, #1B5E20, #2E7D32, #1B5E20);
+    color: white; text-align: center;
+    padding: 0.55rem 1rem;
+    font-size: 0.86rem; font-weight: 600; letter-spacing: 0.3px;
+    margin-top: 0;
+    min-height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:.5rem;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 94vh; background: var(--dark);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 5rem 2rem 3rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(circle at 20% 50%,rgba(255,107,0,.22) 0%,transparent 50%),
+                radial-gradient(circle at 80% 30%,rgba(255,215,0,.18) 0%,transparent 50%),
+                radial-gradient(circle at 60% 80%,rgba(192,57,43,.18) 0%,transparent 40%);
+  }
+  .hero-pattern { position:absolute; inset:0; opacity:.035;
+    background-image: repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%);
+    background-size: 28px 28px; }
+  .hero-content { position:relative; z-index:1; max-width:760px; }
+  .hero-logo { display:flex; align-items:center; justify-content:center; gap:1.2rem; margin-bottom:2rem; animation: fadeDown .6s ease both; }
+  .hero-logo-svg { width:86px; height:86px; filter:drop-shadow(0 0 22px rgba(255,215,0,.45)); }
+  .hero-logo-text { text-align:left; }
+  .hero-logo-text .big-name { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,6vw,3.8rem); font-weight:900; color:var(--gold); line-height:1; }
+  .hero-logo-text .sinhala { font-family:'Noto Serif Sinhala',serif; font-size:.95rem; color:rgba(255,215,0,.55); display:block; margin-top:.25rem; }
+  .hero-badge { display:inline-block; background:rgba(255,215,0,.12); border:1px solid rgba(255,215,0,.35); color:var(--gold); padding:.35rem 1.1rem; border-radius:30px; font-size:.74rem; letter-spacing:3px; text-transform:uppercase; margin-bottom:1.2rem; animation:fadeDown .6s .1s ease both; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,5vw,3.2rem); font-weight:700; font-style:italic; color:white; line-height:1.25; animation:fadeDown .7s .15s ease both; }
+  .hero h1 .acc { color:var(--saffron); font-style:normal; }
+  .hero-sub { margin-top:1.2rem; font-size:1rem; color:rgba(255,255,255,.65); line-height:1.7; animation:fadeDown .7s .2s ease both; }
+  .hero-buttons { margin-top:2.2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; animation:fadeDown .7s .28s ease both; }
+  .btn-primary { display:inline-flex; align-items:center; gap:.5rem; background:var(--saffron); color:white; text-decoration:none; padding:.8rem 1.8rem; border-radius:50px; font-weight:600; font-size:.95rem; box-shadow:0 6px 25px rgba(255,107,0,.45); transition:transform .2s,box-shadow .2s; }
+  .btn-primary:hover { transform:translateY(-3px); box-shadow:0 10px 35px rgba(255,107,0,.6); }
+  .btn-secondary { display:inline-flex; align-items:center; gap:.5rem; border:2px solid var(--gold); color:var(--gold); text-decoration:none; padding:.8rem 1.8rem; border-radius:50px; font-weight:600; font-size:.95rem; transition:background .2s,color .2s; }
+  .btn-secondary:hover { background:var(--gold); color:var(--dark); }
+  .hero-decor { position:absolute; font-size:7rem; opacity:.055; pointer-events:none; }
+  .hero-decor.tl { top:12%; left:2%; animation:spin 22s linear infinite; }
+  .hero-decor.br { bottom:8%; right:2%; animation:spin 28s linear infinite reverse; }
+
+  /* HERO IMAGE STRIP */
+  .hero-images {
+    display: flex; gap: 0; overflow: hidden;
+    height: 220px;
+  }
+  .hero-images img {
+    flex: 1; object-fit: cover; width: 0;
+    filter: brightness(0.85);
+    transition: flex 0.4s ease, filter 0.4s;
+  }
+  .hero-images img:hover { flex: 2.5; filter: brightness(1); }
+
+  /* FESTIVE STRIP */
+  .festive-strip { background:var(--gold); color:var(--dark); overflow:hidden; white-space:nowrap; padding:.55rem 0; }
+  .festive-strip-inner { display:inline-block; animation:marquee 20s linear infinite; font-weight:700; font-size:.88rem; letter-spacing:1px; }
+  .festive-strip-inner span { margin:0 2rem; }
+
+  /* COMMON */
+  .section-label { text-align:center; font-size:.72rem; letter-spacing:4px; text-transform:uppercase; color:var(--saffron); font-weight:600; margin-bottom:.6rem; }
+  .section-title { text-align:center; font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4.5vw,3rem); font-weight:900; color:var(--dark); margin-bottom:.5rem; }
+
+  /* ABOUT */
+  #about { padding:5.5rem 2rem; background:white; }
+  .about-grid { max-width:1050px; margin:3rem auto 0; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+  .about-text p { font-size:1rem; line-height:1.8; color:#444; margin-bottom:1rem; }
+  .about-highlights { display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem; }
+  .highlight-item { display:flex; align-items:flex-start; gap:1rem; padding:1rem 1.2rem; background:var(--cream); border-left:4px solid var(--saffron); border-radius:0 10px 10px 0; transition: transform .2s, box-shadow .2s; }
+  .highlight-item:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(255,107,0,.12); }
+  .highlight-item.delivery { border-left-color: var(--green); background: #f0faf0; }
+  .highlight-item.delivery .icon-wrap { background: var(--green); }
+  .icon-wrap { width: 42px; height: 42px; border-radius: 10px; background: var(--saffron); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+  .highlight-item h4 { font-weight:600; color:var(--dark); margin-bottom:.15rem; font-size: .95rem; }
+  .highlight-item p { font-size:.82rem; color:#666; margin:0; }
+
+  /* ABOUT RIGHT: stacked images */
+  .about-images { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 0.8rem; }
+  .about-img-main { grid-column: 1 / 3; border-radius: 16px; overflow: hidden; height: 210px; }
+  .about-img-main img { width: 100%; height: 100%; object-fit: cover; display:block; transition: transform .4s; }
+  .about-img-main:hover img { transform: scale(1.04); }
+  .about-img-small { border-radius: 12px; overflow: hidden; height: 150px; }
+  .about-img-small img { width: 100%; height: 100%; object-fit: cover; display:block; transition: transform .4s; }
+  .about-img-small:hover img { transform: scale(1.05); }
+  .about-img-caption { font-size: .72rem; color: #aaa; text-align: center; margin-top: .3rem; font-style: italic; }
+
+  /* EVERYDAY */
+
+  /* PRODUCTS */
+  .products-grid { max-width:1100px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(auto-fill,minmax(255px,1fr)); gap:1.8rem; }
+  .product-card { background:white; border-radius:16px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.07); transition:transform .3s,box-shadow .3s; }
+  .product-card:hover { transform:translateY(-7px); box-shadow:0 15px 40px rgba(255,107,0,.18); }
+  .product-img { height:200px; overflow:hidden; position:relative; background:#f5f5f5; }
+  .product-img img { width:100%; height:100%; object-fit:cover; display:block; transition: transform .4s; }
+  .product-card:hover .product-img img { transform: scale(1.07); }
+  .product-img .badge { position:absolute; top:10px; right:10px; background:var(--saffron); color:white; font-size:.68rem; font-weight:700; padding:.22rem .6rem; border-radius:20px; letter-spacing:1px; z-index:1; }
+  .product-img-emoji { height:180px; display:flex; align-items:center; justify-content:center; font-size:4.5rem; position:relative; }
+  .product-body { padding:1.1rem 1.3rem 1.5rem; }
+  .product-body h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--dark); margin-bottom:.35rem; }
+  .product-body p { font-size:.82rem; color:#666; line-height:1.6; margin-bottom:.7rem; }
+  .product-price { font-weight:700; font-size:1rem; color:var(--saffron); margin-bottom:.8rem; }
+  .kavili-everyday-info { text-align:center; margin:1.5rem auto 0; max-width:700px; }
+  .kavili-everyday-badge { display:inline-block; background:var(--green); color:white; font-size:.72rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:.3rem .9rem; border-radius:20px; margin-bottom:.9rem; }
+  .kavili-everyday-desc { color:#666; font-size:.9rem; line-height:1.7; margin-bottom:0; }
+  .place-order-wrap { text-align:center; margin-top:3.5rem; }
+  .place-order-hint { color:#888; font-size:.88rem; margin-bottom:1.2rem; }
+  .place-order-btn { display:inline-flex; align-items:center; gap:.6rem; background:var(--saffron); color:white; border:none; padding:1rem 2.8rem; border-radius:50px; font-family:'Poppins',sans-serif; font-size:1.05rem; font-weight:700; cursor:pointer; box-shadow:0 6px 25px rgba(255,107,0,.4); transition:transform .2s,box-shadow .2s,background .2s; }
+  .place-order-btn:hover { background:var(--deep-red); transform:translateY(-3px); box-shadow:0 12px 35px rgba(255,107,0,.55); }
+
+  /* HAMPERS */
+  #hampers { padding:5.5rem 2rem; background:white; }
+  .hampers-intro { text-align:center; color:#555; max-width:580px; margin:.8rem auto 3rem; font-size:.93rem; line-height:1.7; }
+  .hampers-grid { max-width:1060px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:2rem; }
+  .hamper-card { border-radius:20px; overflow:hidden; box-shadow:0 6px 28px rgba(0,0,0,.09); transition:transform .3s,box-shadow .3s; display:flex; flex-direction:column; }
+  .hamper-card:hover { transform:translateY(-8px); box-shadow:0 18px 45px rgba(255,107,0,.2); }
+  .hamper-header { position:relative; overflow: hidden; }
+  .hamper-header-img { width:100%; height:160px; object-fit:cover; display:block; transition: transform .4s; }
+  .hamper-card:hover .hamper-header-img { transform: scale(1.07); }
+  .hamper-header-overlay { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; padding:1rem 1.2rem 1.2rem; }
+  .hamper-icon { font-size:2.2rem; margin-bottom:.3rem; display:block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+  .hamper-header h3 { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:900; color:white; text-shadow:0 2px 8px rgba(0,0,0,.6); }
+  .hamper-header .h-tag { font-size:.68rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.8); text-shadow:0 1px 4px rgba(0,0,0,.5); }
+  .hamper-body { padding:1.4rem 1.5rem 1.8rem; background:white; flex:1; display:flex; flex-direction:column; }
+  .hamper-body ul { list-style:none; margin-bottom:1.2rem; flex:1; }
+  .hamper-body ul li { font-size:.82rem; color:#555; padding:.3rem 0; border-bottom:1px solid #f2f2f2; display:flex; align-items:center; gap:.5rem; }
+  .hamper-body ul li::before { content:'✦'; color:var(--saffron); font-size:.58rem; }
+  .hamper-price { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:900; margin-bottom:1rem; }
+  .hamper-btn { display:flex; align-items:center; justify-content:center; gap:.4rem; text-decoration:none; background:#25D366; color:white; padding:.7rem 1rem; border-radius:40px; font-weight:600; font-size:.83rem; transition:background .2s; white-space:nowrap; }
+  .hamper-btn:hover { background:#1da851; }
+  .h-small .hamper-price { color:#FF6B00; }
+  .h-medium .hamper-price { color:#C0392B; }
+  .h-large .hamper-price { color:#5D3A1A; }
+  .h-corporate .hamper-price { color:#1A0A00; }
+  .popular-ribbon { position:absolute; top:12px; right:-6px; background:var(--gold); color:var(--dark); font-size:.63rem; font-weight:800; padding:.2rem .8rem .2rem .5rem; border-radius:3px 0 0 3px; letter-spacing:1px; text-transform:uppercase; z-index:2; }
+  .popular-ribbon::after { content:''; position:absolute; right:-8px; top:0; border:10.5px solid transparent; border-left:8px solid var(--gold); }
+  .h-small .hamper-header-overlay { background: linear-gradient(to top, rgba(255,107,0,.75) 0%, transparent 60%); }
+  .h-medium .hamper-header-overlay { background: linear-gradient(to top, rgba(192,57,43,.75) 0%, transparent 60%); }
+  .h-large .hamper-header-overlay { background: linear-gradient(to top, rgba(93,58,26,.8) 0%, transparent 60%); }
+  .h-corporate .hamper-header-overlay { background: linear-gradient(to top, rgba(26,10,0,.85) 0%, transparent 55%); }
+
+  /* ORDER */
+  #order { padding:5.5rem 2rem; background:linear-gradient(135deg,#2C0A0A 0%,#4A1010 50%,#2C0A0A 100%); text-align:center; position:relative; overflow:hidden; }
+  #order .section-title { color:white; }
+  #order .section-label { color:var(--gold); }
+  .order-desc { color:rgba(255,255,255,.6); max-width:540px; margin:.8rem auto 0; font-size:.93rem; line-height:1.7; }
+  .order-notice { display:inline-block; background:rgba(255,215,0,.12); border:1px solid rgba(255,215,0,.35); color:var(--gold); padding:.7rem 1.6rem; border-radius:40px; font-size:.88rem; margin-top:1.2rem; line-height:1.5; }
+  .order-steps { max-width:680px; margin:3rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; text-align:center; }
+  .order-step .step-num { width:38px; height:38px; background:var(--saffron); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-weight:700; margin:0 auto .7rem; }
+  .order-step h4 { color:white; margin-bottom:.25rem; font-size:.92rem; }
+  .order-step p { color:rgba(255,255,255,.45); font-size:.78rem; }
+  .whatsapp-card { max-width:460px; margin:3rem auto 0; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:2.5rem 2rem; }
+  .whatsapp-icon { font-size:3.5rem; margin-bottom:.8rem; }
+  .whatsapp-card h3 { color:white; font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:.7rem; }
+  .whatsapp-card p { color:rgba(255,255,255,.55); margin-bottom:1.8rem; font-size:.88rem; line-height:1.7; }
+  .btn-whatsapp { display:inline-flex; align-items:center; gap:.6rem; background:#25D366; color:white; text-decoration:none; padding:.9rem 2.2rem; border-radius:50px; font-weight:700; font-size:.95rem; box-shadow:0 6px 28px rgba(37,211,102,.35); transition:transform .2s,box-shadow .2s; }
+  .btn-whatsapp:hover { transform:translateY(-3px); box-shadow:0 10px 38px rgba(37,211,102,.5); }
+
+
+
+  /* FOOTER */
+  footer { background:linear-gradient(180deg,#0A1628 0%,#060E1A 100%); color:rgba(255,255,255,.85); font-size:.82rem; position:relative; overflow:hidden; }
+  footer::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#FFD700,#FF6B00,#FFD700); }
+  .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.8fr 1fr 1fr; gap:4rem; padding:4rem 2rem 2.5rem; }
+  .footer-brand { display:flex; flex-direction:column; gap:1.2rem; }
+  .footer-logo-area { display:flex; align-items:center; gap:.9rem; }
+  .footer-logo-svg { width:48px; height:48px; filter:drop-shadow(0 0 12px rgba(255,215,0,.3)); }
+  .footer-name { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--gold); font-weight:900; line-height:1; }
+  .footer-name-sinhala { font-family:'Noto Serif Sinhala',serif; font-size:.7rem; color:rgba(255,215,0,.65); display:block; letter-spacing:1px; margin-top:.2rem; }
+  .footer-tagline { font-size:.83rem; color:rgba(255,255,255,.72); line-height:1.7; max-width:280px; }
+  .footer-divider { width:40px; height:2px; background:linear-gradient(90deg,var(--saffron),transparent); border:none; margin:0; }
+  .footer-social { display:flex; gap:.7rem; }
+  .footer-social-btn { width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1rem; transition:background .2s,border-color .2s; }
+  .footer-social-btn:hover { background:rgba(255,107,0,.25); border-color:var(--saffron); }
+  .footer-wa-btn { display:inline-flex; align-items:center; gap:.55rem; background:#25D366; color:white !important; padding:.6rem 1.3rem; border-radius:30px; font-size:.82rem; font-weight:700; text-decoration:none; transition:background .2s, transform .2s; width:fit-content; }
+  .footer-wa-btn:hover { background:#1da851; transform:translateY(-1px); }
+  .footer-section-title { font-size:.68rem; letter-spacing:3.5px; text-transform:uppercase; color:var(--gold); font-weight:700; margin-bottom:1.2rem; display:block; }
+  .footer-contact { display:flex; flex-direction:column; gap:.85rem; }
+  .footer-contact-item { display:flex; align-items:flex-start; gap:.7rem; font-size:.82rem; color:rgba(255,255,255,.82); line-height:1.4; }
+  .footer-contact-item .fc-icon { font-size:.95rem; flex-shrink:0; margin-top:.05rem; opacity:.8; }
+  .footer-contact-item a { color:var(--saffron); text-decoration:none; transition:color .2s; }
+  .footer-contact-item a:hover { color:var(--gold); }
+  .footer-links { display:flex; flex-direction:column; gap:.65rem; }
+  .footer-links a { color:rgba(255,255,255,.78); text-decoration:none; font-size:.83rem; transition:color .2s, padding-left .2s; display:flex; align-items:center; gap:.4rem; }
+  .footer-links a::before { content:'›'; color:var(--saffron); font-size:.9rem; opacity:0; transition:opacity .2s; }
+  .footer-links a:hover { color:var(--gold); padding-left:.3rem; }
+  .footer-links a:hover::before { opacity:1; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding:1.3rem 2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1100px; margin:0 auto; }
+  .footer-bottom p { color:rgba(255,255,255,.5); font-size:.76rem; }
+  .footer-bottom-badge { display:inline-flex; align-items:center; gap:.4rem; background:rgba(255,215,0,.08); border:1px solid rgba(255,215,0,.3); color:rgba(255,215,0,.8); padding:.3rem .8rem; border-radius:20px; font-size:.72rem; font-weight:600; letter-spacing:.5px; }
+  footer a { text-decoration:none; }
+  @media(max-width:768px){
+    .footer-inner{grid-template-columns:1fr;gap:2.5rem;padding:3rem 1.5rem 2rem;}
+    .footer-bottom{flex-direction:column;align-items:flex-start;gap:.6rem;}
+    .footer-tagline{max-width:100%;}
+  }
+
+  .hero-images { display:flex; height:240px; overflow:hidden; }
+  .hero-images img { flex:1; width:0; object-fit:cover; display:block; filter:brightness(.82); transition:flex .4s ease,filter .3s; cursor:pointer; }
+  .hero-images img:hover { flex:2.5; filter:brightness(1); }
+
+  /* FLOAT WA */
+  .float-wa { position:fixed; bottom:1.6rem; right:1.6rem; z-index:999; background:#25D366; color:white; text-decoration:none; width:58px; height:58px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 22px rgba(37,211,102,.45); transition:transform .2s; animation:pulse 2.2s ease-in-out infinite; }
+  .float-wa:hover { transform:scale(1.15); }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+  @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  @keyframes pulse { 0%,100%{box-shadow:0 6px 22px rgba(37,211,102,.45)} 50%{box-shadow:0 6px 36px rgba(37,211,102,.75)} }
+
+  @media(max-width:768px){
+    .nav-links{display:none;}
+    .about-grid,.contact-grid{grid-template-columns:1fr;}
+    .order-steps{grid-template-columns:1fr;}
+    .hero-logo{flex-direction:column;}
+    .hero-logo-text{text-align:center;}
+    .hero-images{height:140px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo-wrap" href="#">
+    <svg class="nav-logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="40" cy="40" r="36" fill="#3D1A00" stroke="#FFD700" stroke-width="2.5"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(0 40 40)"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(45 40 40)"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(90 40 40)"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(135 40 40)"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(180 40 40)"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(225 40 40)"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(270 40 40)"/>
+      <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".6" transform="rotate(315 40 40)"/>
+      <rect x="26" y="26" width="28" height="28" rx="6" fill="#FFD700" transform="rotate(45 40 40)"/>
+      <rect x="30" y="30" width="20" height="20" rx="4" fill="#FF6B00" transform="rotate(45 40 40)"/>
+      <circle cx="40" cy="40" r="5" fill="#FFD700"/>
+      <circle cx="40" cy="40" r="2.5" fill="#1A0A00"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="name">Sweet n Taste</span>
+      <span class="tagline">Authentic Sri Lankan Kavili</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Our Sweets</a></li>
+    <li><a href="#hampers">Hampers</a></li>
+    <li><a href="#customize" class="nav-cta">Order Now</a></li>
+  </ul>
+</nav>
+
+<!-- NAV SPACER -->
+<div style="height:56px"></div>
+
+<!-- ALL DAYS BANNER -->
+<div class="alldays-bar">
+  🟢 &nbsp; Aurudu Kavili Available <strong>Every Day</strong> — Not Just for New Year! &nbsp; 🌺 &nbsp; Order Anytime via WhatsApp &nbsp; 🟢
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-decor tl">🌸</div>
+  <div class="hero-decor br">🌺</div>
+  <div class="hero-content">
+    <div class="hero-logo">
+      <svg class="hero-logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="36" fill="#3D1A00" stroke="#FFD700" stroke-width="2.5"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(0 40 40)"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(45 40 40)"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(90 40 40)"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(135 40 40)"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(180 40 40)"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(225 40 40)"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(270 40 40)"/>
+        <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(315 40 40)"/>
+        <rect x="26" y="26" width="28" height="28" rx="6" fill="#FFD700" transform="rotate(45 40 40)"/>
+        <rect x="30" y="30" width="20" height="20" rx="4" fill="#FF6B00" transform="rotate(45 40 40)"/>
+        <circle cx="40" cy="40" r="5" fill="#FFD700"/>
+        <circle cx="40" cy="40" r="2.5" fill="#1A0A00"/>
+      </svg>
+      <div class="hero-logo-text">
+        <div class="big-name">Sweet n Taste</div>
+        <span class="sinhala">Sweet n Taste</span>
+      </div>
+    </div>
+    <div class="hero-badge">🎉 Handcrafted Sri Lankan Kavili</div>
+    <h1>Traditional Sweets,<br><span class="acc">Fresh Every Day</span></h1>
+    <p class="hero-sub">Kokis, Kavum, Aasmi, Mung Kavum & more — made with pure ingredients and love.<br>Available all year round. Order hampers for any occasion!</p>
+    <div class="hero-buttons">
+      <a href="#products" class="btn-primary">🍬 See Our Kavili</a>
+      <a href="#hampers" class="btn-secondary">🎁 View Hampers</a>
+    </div>
+  </div>
+</section>
+
+<!-- HERO IMAGE STRIP -->
+<div class="hero-images">
+  <img src="bg1.jpg" alt="Sri Lankan Kavili">
+  <img src="kokis.jpg" alt="Kokis">
+  <img src="asmi.jpg" alt="Aasmi">
+  <img src="hamper.jpg" alt="Kavili Hampers">
+</div>
+
+<!-- FESTIVE STRIP -->
+<div class="festive-strip">
+  <div class="festive-strip-inner">
+    <span>🍯 Available Every Day</span><span>🌸 Traditional Recipes</span><span>🎁 Kavili Hampers</span><span>🚚 On-Time Delivery</span><span>✨ Corporate Gift Packs</span><span>🌺 Fresh to Order</span>
+    <span>🍯 Available Every Day</span><span>🌸 Traditional Recipes</span><span>🎁 Kavili Hampers</span><span>🚚 On-Time Delivery</span><span>✨ Corporate Gift Packs</span><span>🌺 Fresh to Order</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who We Are</div>
+  <h2 class="section-title">A Taste of Home, Every Day</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Welcome to <strong>Sweet n Taste</strong> — your home for authentic, handmade Sri Lankan kavili. We bring the warmth of treasured family recipes to your door, not just at Avurudu, but <em>every single day</em> of the year.</p>
+      <p>Every sweet is crafted fresh to order using pure, natural ingredients — coconut, kithul treacle, rice flour and hand-selected spices — just like amma and achchi used to make.</p>
+      <div class="about-highlights">
+
+        <div class="highlight-item">
+          <div class="icon-wrap">🧑‍🍳</div>
+          <div><h4>Handmade with Love</h4><p>Every batch prepared fresh using traditional methods passed down for generations.</p></div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="icon-wrap">🌿</div>
+          <div><h4>Pure Natural Ingredients</h4><p>No artificial colours or flavours. Just coconut, kithul treacle, rice flour & spices.</p></div>
+        </div>
+
+        <div class="highlight-item">
+          <div class="icon-wrap">📅</div>
+          <div><h4>Available All Days</h4><p>Our kavili are available 365 days — perfect for birthdays, weddings & any occasion!</p></div>
+        </div>
+
+        <!-- ON-TIME DELIVERY HIGHLIGHT -->
+        <div class="highlight-item delivery">
+          <div class="icon-wrap" style="background:var(--green);">🚚</div>
+          <div>
+            <h4>On-Time Delivery — Guaranteed</h4>
+            <p>We promise your order arrives fresh and on schedule. Every single time, no exceptions. Place your order ahead and we handle the rest!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ABOUT IMAGES -->
+    <div>
+      <div class="about-images">
+        <div class="about-img-main">
+          <img src="bg2.jpg" alt="Authentic Kavili">
+        </div>
+        <div class="about-img-small">
+          <img src="kokis2.jpg" alt="Kokis">
+        </div>
+        <div class="about-img-small">
+          <img src="hamper.jpg" alt="Hampers">
+        </div>
+      </div>
+      <p class="about-img-caption">Freshly made kavili, ready for you every day 🌺</p>
+    </div>
+  </div>
+</section>
+
+<!-- KAVILI SECTION -->
+<section id="products" style="background:var(--cream); padding:5.5rem 2rem 4rem;">
+  <div class="section-label">Our Menu</div>
+  <h2 class="section-title">Traditional Kavili</h2>
+  <div class="kavili-everyday-info">
+    <span class="kavili-everyday-badge">🟢 Available 365 Days a Year</span>
+    <p class="kavili-everyday-desc">You don't have to wait for Avurudu season! Our full range of traditional Sri Lankan kavili is freshly made and available to order any day — for birthdays, weddings, offices, or simply treating yourself.</p>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-img"><img src="kokis.jpg" alt="Kokis"><div class="badge">POPULAR</div></div>
+      <div class="product-body"><h3>Kokis</h3><p>Crispy golden deep-fried rose-shaped delights made from rice flour & coconut milk.</p><div class="product-price">Rs. 80/pc</div></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img"><img src="wali_thalapa_2.jpg" alt="Wali Thalapa"><div class="badge">CLASSIC</div></div>
+      <div class="product-body"><h3>Wali Thalapa</h3><p>Soft and sweet traditional rice cakes made with rice flour and kithul treacle. A must-have!</p><div class="product-price">Rs. 80/pc</div></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img"><img src="asmi.jpg" alt="Aasmi"><div class="badge">DAILY</div></div>
+      <div class="product-body"><h3>Aasmi</h3><p>Crispy lacy sweets made from rice flour and coconut milk — light and irresistible.</p><div class="product-price">Medium — Rs. 140/pc<br>Large — Rs. 170/pc</div></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img"><img src="mung_kavum.jpg" alt="Mung Kavum"></div>
+      <div class="product-body"><h3>Mung Kavum</h3><p>Soft, mildly sweet green gram cakes — a wholesome favourite for all ages.</p><div class="product-price">Rs. 100/pc</div></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img"><img src="konda_kavum.jpg" alt="Konda Kavum"></div>
+      <div class="product-body"><h3>Konda Kavum</h3><p>Traditional treacle-soaked cakes with a distinctive peak — rich and indulgent.</p><div class="product-price">Rs. 100/pc</div></div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img"><img src="aluwa.jpg" alt="Aluwa"><div class="badge">DAILY</div></div>
+      <div class="product-body"><h3>Aluwa</h3><p>Sweet, fudge-like confection made from rice flour, jaggery and cashews — a beloved Sri Lankan treat.</p><div class="product-price">Rs. 80/pc</div></div>
+    </div>
+
+  </div>
+
+  <!-- PLACE YOUR ORDER BUTTON -->
+  <div class="place-order-wrap">
+    <p class="place-order-hint">Ready to order? Build your custom selection below 👇</p>
+    <button class="place-order-btn" onclick="goToCustomOrder()">🛒 Place Your Order</button>
+  </div>
+
+</section>
+
+<!-- HAMPERS -->
+<section id="hampers">
+  <div class="section-label">Gift Collections</div>
+  <h2 class="section-title">Kavili Hampers 🧺</h2>
+  <p class="hampers-intro">Choose from our lovingly curated hampers — perfect for Avurudu gifting, weddings, birthdays, office events, or just treating someone special. All delivered on time, guaranteed.</p>
+  <div class="hampers-grid">
+
+    <div class="hamper-card h-small">
+      <div class="hamper-header">
+        <img class="hamper-header-img" src="hamper.jpg" alt="Kavili Hamper">
+        <div class="hamper-header-overlay">
+          <span class="hamper-icon">🎀</span>
+          <h3>Small Hamper</h3>
+          <div class="h-tag">Perfect for Friends</div>
+        </div>
+      </div>
+      <div class="hamper-body">
+        <ul>
+          <li>Mung Kavum × 5</li>
+          <li>Kokis × 10</li>
+          <li>Konda Kavum × 5</li>
+          <li>Aasmi Medium × 2</li>
+          <li>Wali Thalapa × 5</li>
+          <li>Aluwa × 5</li>
+          <li>Gingerly Roll × 10</li>
+          <li>Traditional Pan Basket & Box</li>
+        </ul>
+        <div class="hamper-price">Rs. 3,850</div>
+        <a href="https://wa.me/94701755235?text=Hi%20Kavum%20Gedara!%20I%27d%20like%20to%20order%20a%20Small%20Hamper%20%F0%9F%8E%80" target="_blank" class="hamper-btn">📲 Order via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="hamper-card h-medium">
+      <div class="hamper-header">
+        <span class="popular-ribbon">POPULAR</span>
+        <img class="hamper-header-img" src="hamper.jpg" alt="Kavili Hamper">
+        <div class="hamper-header-overlay">
+          <span class="hamper-icon">🎁</span>
+          <h3>Medium Hamper</h3>
+          <div class="h-tag">Ideal for Families</div>
+        </div>
+      </div>
+      <div class="hamper-body">
+        <ul>
+          <li>Mung Kavum × 8</li>
+          <li>Kokis × 15</li>
+          <li>Konda Kavum × 8</li>
+          <li>Aasmi Medium × 4</li>
+          <li>Wali Thalapa × 8</li>
+          <li>Aluwa × 8</li>
+          <li>Gingerly Roll × 10</li>
+          <li>Traditional Pan Basket & Box</li>
+        </ul>
+        <div class="hamper-price">Rs. 5,980</div>
+        <a href="https://wa.me/94701755235?text=Hi%20Kavum%20Gedara!%20I%27d%20like%20to%20order%20a%20Medium%20Hamper%20%F0%9F%8E%81" target="_blank" class="hamper-btn">📲 Order via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="hamper-card h-large">
+      <div class="hamper-header">
+        <img class="hamper-header-img" src="hamper.jpg" alt="Kavili Hamper">
+        <div class="hamper-header-overlay">
+          <span class="hamper-icon">🧺</span>
+          <h3>Large Hamper</h3>
+          <div class="h-tag">Grand Gift for Loved Ones</div>
+        </div>
+      </div>
+      <div class="hamper-body">
+        <ul>
+          <li>Mung Kavum × 10</li>
+          <li>Kokis × 20</li>
+          <li>Konda Kavum × 10</li>
+          <li>Aasmi Medium × 6</li>
+          <li>Wali Thalapa × 10</li>
+          <li>Aluwa × 10</li>
+          <li>Gingerly Roll × 15</li>
+          <li>Traditional Pan Basket & Box</li>
+        </ul>
+        <div class="hamper-price">Rs. 7,700</div>
+        <a href="https://wa.me/94701755235?text=Hi%20Kavum%20Gedara!%20I%27d%20like%20to%20order%20a%20Large%20Hamper%20%F0%9F%A7%BA" target="_blank" class="hamper-btn">📲 Order via WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="hamper-card h-corporate">
+      <div class="hamper-header">
+        <img class="hamper-header-img" src="hamper.jpg" alt="Kavili Hamper">
+        <div class="hamper-header-overlay">
+          <span class="hamper-icon">🏢</span>
+          <h3>Corporate Hamper</h3>
+          <div class="h-tag">Bulk & Custom Orders</div>
+        </div>
+      </div>
+      <div class="hamper-body">
+        <ul>
+          <li>Fully customisable contents</li><li>Branded packaging available</li><li>Minimum order: 10 hampers</li><li>Bulk pricing discounts</li><li>On-time delivery guaranteed</li>
+        </ul>
+        <div class="hamper-price">Custom Price</div>
+        <a href="https://wa.me/94701755235?text=Hi%20Kavum%20Gedara!%20I%27d%20like%20to%20enquire%20about%20Corporate%20Hampers%20%F0%9F%8F%A2" target="_blank" class="hamper-btn">📲 Enquire on WhatsApp</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CUSTOMIZE HAMPER BUILDER -->
+  <div class="customize-hamper" id="customize">
+    <div class="customize-header">
+      <div class="customize-icon">🎨</div>
+      <h3>Build Your Own Hamper</h3>
+      <p>Can't find exactly what you need? Mix and match our kavili to create your perfect hamper — we'll pack it beautifully in a traditional pan basket!</p>
+    </div>
+
+    <div class="customize-body">
+
+      <!-- OUR KAVILI PICKER -->
+      <div class="customize-section">
+        <h4 class="customize-section-title">🍬 Choose from Our Kavili</h4>
+        <div class="customize-items">
+          <div class="citem" onclick="toggleItem(this)" data-name="Kokis" data-price="80">
+            <img src="kokis.jpg" alt="Kokis">
+            <div class="citem-info"><span class="citem-name">Kokis</span><span class="citem-price">Rs. 80/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+          <div class="citem" onclick="toggleItem(this)" data-name="Wali Thalapa" data-price="80">
+            <img src="wali_thalapa_2.jpg" alt="Wali Thalapa">
+            <div class="citem-info"><span class="citem-name">Wali Thalapa</span><span class="citem-price">Rs. 80/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+          <div class="citem" onclick="toggleItem(this)" data-name="Aasmi (M)" data-price="140">
+            <img src="asmi.jpg" alt="Aasmi">
+            <div class="citem-info"><span class="citem-name">Aasmi (Medium)</span><span class="citem-price">Rs. 140/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+          <div class="citem" onclick="toggleItem(this)" data-name="Aasmi (L)" data-price="170">
+            <img src="asmi2.jpg" alt="Aasmi Large">
+            <div class="citem-info"><span class="citem-name">Aasmi (Large)</span><span class="citem-price">Rs. 170/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+          <div class="citem" onclick="toggleItem(this)" data-name="Mung Kavum" data-price="100">
+            <img src="mung_kavum.jpg" alt="Mung Kavum">
+            <div class="citem-info"><span class="citem-name">Mung Kavum</span><span class="citem-price">Rs. 100/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+          <div class="citem" onclick="toggleItem(this)" data-name="Konda Kavum" data-price="100">
+            <img src="konda_kavum.jpg" alt="Konda Kavum">
+            <div class="citem-info"><span class="citem-name">Konda Kavum</span><span class="citem-price">Rs. 100/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+          <div class="citem" onclick="toggleItem(this)" data-name="Aluwa" data-price="70">
+            <img src="aluwa.jpg" alt="Aluwa">
+            <div class="citem-info"><span class="citem-name">Aluwa</span><span class="citem-price">Rs. 70/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+          <div class="citem" onclick="toggleItem(this)" data-name="Gingerly Roll" data-price="60">
+            <img src="kokis2.jpg" alt="Gingerly Roll">
+            <div class="citem-info"><span class="citem-name">Gingerly Roll</span><span class="citem-price">Rs. 60/pc</span></div>
+            <div class="citem-qty" style="display:none">
+              <button onclick="changeQty(event,this,-1)">−</button>
+              <span class="qty">1</span>
+              <button onclick="changeQty(event,this,1)">+</button>
+            </div>
+            <div class="citem-check">✓</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXTRA PREFERENCES (not in our list) -->
+      <div class="customize-section">
+        <h4 class="customize-section-title">✍️ Add Your Own Preferences <span class="custom-note">Don't see what you want? Tell us!</span></h4>
+        <textarea id="customNote" placeholder="e.g. Dodol × 5, Athirasa × 10, extra cashews, sugar-free options, special dietary needs, any other Sri Lankan sweets you'd like…" rows="3"></textarea>
+      </div>
+
+      <!-- PACKAGING -->
+      <div class="customize-section">
+        <h4 class="customize-section-title">🧺 Packaging <span class="custom-note">Optional</span></h4>
+        <div class="pack-options">
+          <label class="pack-opt"><input type="radio" name="pack" value="Traditional Pan Basket & Box"> Traditional Pan Basket & Box</label>
+          <label class="pack-opt"><input type="radio" name="pack" value="Decorative Gift Box"> Decorative Gift Box</label>
+          <label class="pack-opt"><input type="radio" name="pack" value="Premium Wicker Basket"> Premium Wicker Basket</label>
+          <label class="pack-opt selected"><input type="radio" name="pack" value="" checked> No Special Package</label>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="customize-summary">
+        <div class="summary-left">
+          <span class="summary-label">Estimated Total</span>
+          <div class="summary-total-row">
+            <span class="summary-total" id="summaryTotal">Rs. 0</span>
+            <span class="summary-packaging" id="summaryPackaging"></span>
+          </div>
+          <span class="summary-note">Final price confirmed on WhatsApp.</span>
+        </div>
+        <button class="summary-btn" onclick="sendCustomOrder()">📲 Send Custom Order via WhatsApp</button>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<style>
+  /* CUSTOMIZE HAMPER */
+  .customize-hamper { max-width:1060px; margin:3rem auto 0; background:linear-gradient(135deg,#1A0A00,#3D1A00); border-radius:24px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,.2); }
+  .customize-header { text-align:center; padding:2.5rem 2rem 1.5rem; }
+  .customize-icon { font-size:3rem; margin-bottom:.8rem; }
+  .customize-header h3 { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; color:var(--gold); margin-bottom:.6rem; }
+  .customize-header p { color:rgba(255,255,255,.6); font-size:.93rem; line-height:1.7; max-width:580px; margin:0 auto; }
+  .customize-body { background:white; border-radius:20px 20px 0 0; padding:2rem 2rem 0; }
+  .customize-section { margin-bottom:2rem; }
+  .customize-section-title { font-size:.95rem; font-weight:700; color:var(--dark); margin-bottom:1rem; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+  .custom-note { font-size:.75rem; font-weight:400; color:#aaa; font-style:italic; }
+
+  /* ITEM PICKER */
+  .customize-items { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:.8rem; }
+  .citem { border:2px solid #eee; border-radius:12px; overflow:hidden; cursor:pointer; transition:border-color .2s, box-shadow .2s; position:relative; background:white; }
+  .citem:hover { border-color:var(--saffron); box-shadow:0 4px 16px rgba(255,107,0,.12); }
+  .citem.active { border-color:var(--saffron); box-shadow:0 4px 20px rgba(255,107,0,.2); }
+  .citem img { width:100%; height:80px; object-fit:cover; display:block; }
+  .citem-info { padding:.5rem .7rem .3rem; }
+  .citem-name { display:block; font-size:.82rem; font-weight:600; color:var(--dark); }
+  .citem-price { display:block; font-size:.75rem; color:var(--saffron); font-weight:600; }
+  .citem-qty { display:flex; align-items:center; justify-content:center; gap:.5rem; padding:.4rem .7rem .6rem; }
+  .citem-qty button { width:24px; height:24px; border-radius:50%; border:none; background:var(--saffron); color:white; font-size:1rem; cursor:pointer; line-height:1; display:flex; align-items:center; justify-content:center; font-weight:700; }
+  .citem-qty button:hover { background:var(--deep-red); }
+  .citem-qty .qty { font-weight:700; font-size:.9rem; min-width:20px; text-align:center; color:var(--dark); }
+  .citem-check { position:absolute; top:6px; right:6px; background:var(--saffron); color:white; width:22px; height:22px; border-radius:50%; display:none; align-items:center; justify-content:center; font-size:.7rem; font-weight:700; }
+  .citem.active .citem-check { display:flex; }
+
+  /* TEXTAREA */
+  textarea { width:100%; border:2px solid #eee; border-radius:12px; padding:.9rem 1rem; font-family:'Poppins',sans-serif; font-size:.88rem; color:var(--dark); resize:vertical; outline:none; transition:border-color .2s; }
+  textarea:focus { border-color:var(--saffron); }
+
+  /* PACKAGING */
+  .pack-options { display:flex; gap:.8rem; flex-wrap:wrap; }
+  .pack-opt { display:flex; align-items:center; gap:.5rem; padding:.6rem 1rem; border:2px solid #eee; border-radius:30px; cursor:pointer; font-size:.85rem; font-weight:500; color:#555; transition:border-color .2s, background .2s; }
+  .pack-opt input { display:none; }
+  .pack-opt.selected, .pack-opt:has(input:checked) { border-color:var(--saffron); background:#fff3eb; color:var(--saffron); font-weight:600; }
+
+  /* SUMMARY */
+  .customize-summary { background:var(--cream); border-radius:16px; padding:1.4rem 1.8rem; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+  .summary-left { display:flex; flex-direction:column; }
+  .summary-label { font-size:.75rem; letter-spacing:2px; text-transform:uppercase; color:#aaa; font-weight:600; }
+  .summary-total-row { display:flex; align-items:baseline; gap:.5rem; flex-wrap:wrap; }
+  .summary-total { font-family:'Playfair Display',serif; font-size:2rem; font-weight:900; color:var(--saffron); line-height:1.1; }
+  .summary-packaging { font-size:1rem; color:var(--saffron); font-weight:600; opacity:.75; }
+  .summary-note { font-size:.72rem; color:#aaa; margin-top:.4rem; }
+  .summary-btn { background:#25D366; color:white; border:none; padding:.9rem 2rem; border-radius:50px; font-weight:700; font-size:.95rem; cursor:pointer; display:flex; align-items:center; gap:.6rem; box-shadow:0 6px 22px rgba(37,211,102,.35); transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+  .summary-btn:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(37,211,102,.5); }
+
+  @media(max-width:600px){
+    .customize-items { grid-template-columns:repeat(2,1fr); }
+    .customize-summary { flex-direction:column; align-items:flex-start; }
+    .summary-btn { width:100%; justify-content:center; }
+  }
+</style>
+
+<script>
+  function toggleItem(el) {
+    el.classList.toggle('active');
+    const qty = el.querySelector('.citem-qty');
+    qty.style.display = el.classList.contains('active') ? 'flex' : 'none';
+    updateTotal();
+  }
+
+  function changeQty(e, btn, delta) {
+    e.stopPropagation();
+    const span = btn.parentElement.querySelector('.qty');
+    let val = parseInt(span.textContent) + delta;
+    if (val < 1) val = 1;
+    span.textContent = val;
+    updateTotal();
+  }
+
+  function updateTotal() {
+    let itemsTotal = 0;
+    document.querySelectorAll('.citem.active').forEach(el => {
+      const price = parseInt(el.dataset.price);
+      const qty = parseInt(el.querySelector('.qty').textContent);
+      itemsTotal += price * qty;
+    });
+    document.getElementById('summaryTotal').textContent = 'Rs. ' + itemsTotal.toLocaleString();
+    const packInput = document.querySelector('input[name="pack"]:checked');
+    const packVal = packInput ? packInput.value : '';
+    const packEl = document.getElementById('summaryPackaging');
+    packEl.textContent = packVal ? '+ ' + packVal : '';
+  }
+
+  // Highlight selected packaging & update total
+  document.querySelectorAll('.pack-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.pack-opt').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      setTimeout(updateTotal, 10);
+    });
+  });
+
+  function goToCustomOrder() {
+    document.getElementById('customize').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function orderProduct(name) {
+    // Find the matching citem in custom hamper and activate it
+    let found = false;
+    document.querySelectorAll('.citem').forEach(el => {
+      if (el.dataset.name === name) {
+        if (!el.classList.contains('active')) {
+          el.classList.add('active');
+          el.querySelector('.citem-qty').style.display = 'flex';
+        }
+        found = true;
+      }
+    });
+    updateTotal();
+    // Scroll to customize section smoothly
+    document.getElementById('customize').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Flash the activated item briefly
+    if (found) {
+      setTimeout(() => {
+        document.querySelectorAll('.citem').forEach(el => {
+          if (el.dataset.name === name) {
+            el.style.outline = '3px solid var(--saffron)';
+            el.style.outlineOffset = '2px';
+            setTimeout(() => { el.style.outline = ''; el.style.outlineOffset = ''; }, 1500);
+          }
+        });
+      }, 600);
+    }
+  }
+
+  function sendCustomOrder() {
+    const items = [];
+    document.querySelectorAll('.citem.active').forEach(el => {
+      const name = el.dataset.name;
+      const qty = el.querySelector('.qty').textContent;
+      items.push(name + ' × ' + qty);
+    });
+    const note = document.getElementById('customNote').value.trim();
+    const total = document.getElementById('summaryTotal').textContent;
+
+    if (items.length === 0 && !note) {
+      alert('Please select at least one kavili item or add your preferences!');
+      return;
+    }
+
+    let msg = 'Hi Sweet n Taste! 🎉 I would like to build a Custom Hamper.\n\n';
+    if (items.length > 0) msg += '🍬 Items:\n' + items.join('\n') + '\n\n';
+    if (note) msg += '✍️ Additional preferences:\n' + note + '\n\n';
+    msg += '💰 Estimated Total: ' + total + '\n\n';
+    const pack = document.querySelector('input[name="pack"]:checked').value;
+    if (pack) msg += '🧺 Packaging: ' + pack + '\n\n';
+    msg += 'Please confirm availability and final price. Thank you!';
+
+    window.open('https://wa.me/94701755235?text=' + encodeURIComponent(msg), '_blank');
+  }
+</script>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-label">Got Questions?</div>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span>How do I place an order?</span><span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Simply tap the WhatsApp button, send us your name, delivery address, items you'd like, and preferred delivery date. We'll confirm your order and arrange everything!</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span>Are kavili available every day or only during Avurudu season?</span><span class="faq-arrow">▾</span></button>
+      <div class="faq-a">All our traditional kavili are available <strong>365 days a year</strong> — not just at New Year! Perfect for birthdays, weddings, office events, or any occasion.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span>What is your cancellation &amp; refund policy?</span><span class="faq-arrow">▾</span></button>
+      <div class="faq-a">
+        <ul class="faq-policy">
+          <li>✅ <strong>Free cancellation</strong> up to 1 day before your order date.</li>
+          <li>⚠️ Cancellations <strong>within 1 day</strong> are subject to a <strong>50% charge</strong>.</li>
+          <li>❌ <strong>No-shows</strong> are <strong>non-refundable</strong>.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span>How far in advance should I place my order?</span><span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Please place your order at least <strong>3 days in advance</strong> to ensure freshness and on-time delivery. For corporate orders, allow <strong>5–7 days</strong>.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span>Do you offer delivery?</span><span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Yes! We offer delivery within the local area. Delivery charges may apply depending on your location — our team will confirm when you place your order.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span>Can I customise a hamper?</span><span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Absolutely! Use our <strong>Build Your Own Hamper</strong> tool in the Hampers section to pick exactly what you want, including items not on our standard list.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span>Are your kavili made with natural ingredients?</span><span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Yes! Every kavili is handmade using <strong>pure, natural ingredients</strong> — coconut, kithul treacle, rice flour and hand-selected spices. No artificial colours or flavours.</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #faq { padding:5.5rem 2rem; background:var(--cream); }
+  .faq-list { max-width:780px; margin:3rem auto 0; display:flex; flex-direction:column; gap:.8rem; }
+  .faq-item { background:white; border-radius:14px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.06); transition:box-shadow .2s; }
+  .faq-item:hover { box-shadow:0 4px 20px rgba(255,107,0,.12); }
+  .faq-q { width:100%; background:none; border:none; padding:1.2rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; cursor:pointer; text-align:left; font-family:'Poppins',sans-serif; font-size:.95rem; font-weight:600; color:var(--dark); transition:background .2s; }
+  .faq-q:hover { background:#fff5ee; }
+  .faq-q.open { background:#fff5ee; color:var(--saffron); }
+  .faq-arrow { font-size:1.1rem; flex-shrink:0; transition:transform .3s; color:var(--saffron); }
+  .faq-q.open .faq-arrow { transform:rotate(180deg); }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease,padding .3s; padding:0 1.5rem; font-size:.88rem; color:#555; line-height:1.8; }
+  .faq-a.open { max-height:300px; padding:.2rem 1.5rem 1.2rem; }
+  .faq-policy { list-style:none; display:flex; flex-direction:column; gap:.5rem; margin-top:.3rem; }
+  .faq-policy li { font-size:.88rem; color:#444; }
+</style>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+    if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+  }
+</script>
+
+<!-- ORDER -->
+<section id="order">
+  <div class="section-label">Place Your Order</div>
+  <h2 class="section-title">Order via WhatsApp</h2>
+  <p class="order-desc">Ordering is simple! Send us a message and we'll take care of everything — fresh kavili delivered on time to your door.</p>
+  <div class="order-notice">⏰ &nbsp; Please place your order <strong>at least 3 days in advance</strong> to ensure freshness and on-time delivery.</div>
+  <div class="order-steps">
+    <div class="order-step"><div class="step-num">1</div><h4>Browse & Choose</h4><p>Pick your sweets or hamper</p></div>
+    <div class="order-step"><div class="step-num">2</div><h4>Message Us</h4><p>Send your order on WhatsApp</p></div>
+    <div class="order-step"><div class="step-num">3</div><h4>We Deliver!</h4><p>Fresh kavili, on time, at your door</p></div>
+  </div>
+  <div class="whatsapp-card">
+    <div class="whatsapp-icon">💬</div>
+    <h3>Chat to Order</h3>
+    <p>Send us your name, address, items you'd like, and preferred delivery date. We'll confirm and deliver on time!</p>
+    <a href="https://wa.me/94701755235?text=Hi%20Kavum%20Gedara!%20%F0%9F%8E%89%20I%20would%20like%20to%20place%20an%20order.%0A%0AName%3A%20%0AAddress%3A%20%0AItems%3A%20%0ADelivery%20Date%3A" target="_blank" class="btn-whatsapp">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Order on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="footer-logo-area">
+        <svg class="footer-logo-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="36" fill="#3D1A00" stroke="#FFD700" stroke-width="2.5"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(0 40 40)"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(45 40 40)"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(90 40 40)"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(135 40 40)"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(180 40 40)"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(225 40 40)"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(270 40 40)"/>
+          <ellipse cx="40" cy="12" rx="4" ry="7" fill="#FF6B00" opacity=".55" transform="rotate(315 40 40)"/>
+          <rect x="26" y="26" width="28" height="28" rx="6" fill="#FFD700" transform="rotate(45 40 40)"/>
+          <rect x="30" y="30" width="20" height="20" rx="4" fill="#FF6B00" transform="rotate(45 40 40)"/>
+          <circle cx="40" cy="40" r="5" fill="#FFD700"/>
+          <circle cx="40" cy="40" r="2.5" fill="#1A0A00"/>
+        </svg>
+        <div>
+          <div class="footer-name">Sweet n Taste</div>
+          <span class="footer-name-sinhala">Sweet n Taste</span>
+        </div>
+      </div>
+      <p class="footer-tagline">Authentic, handmade Sri Lankan kavili — crafted fresh every day with love and tradition.</p>
+      <hr class="footer-divider">
+      <a href="https://wa.me/94701755235?text=Hi%20Kavum%20Gedara!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8E%89" target="_blank" class="footer-wa-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order via WhatsApp
+      </a>
+    </div>
+
+    <!-- Find Us -->
+    <div class="footer-contact">
+      <span class="footer-section-title">Find Us</span>
+      <div class="footer-contact-item"><span class="fc-icon">📍</span><span>Your Street, City, Sri Lanka</span></div>
+      <div class="footer-contact-item"><span class="fc-icon">📱</span><a href="https://wa.me/94701755235">+94 70 175 5235</a></div>
+      <div class="footer-contact-item"><span class="fc-icon">⏰</span><span>8:00 AM – 8:00 PM<br>Every Day</span></div>
+      <div class="footer-contact-item"><span class="fc-icon">🚚</span><span>Local delivery<br>On-time guaranteed</span></div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <span class="footer-section-title">Quick Links</span>
+      <a href="#about">About Us</a>
+      <a href="#products">Our Sweets</a>
+      <a href="#hampers">Hampers</a>
+      <a href="#customize">Custom Hamper</a>
+      <a href="#faq">FAQ</a>
+      <a href="#order">Order Now</a>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Sweet n Taste. All rights reserved.</p>
+    <span class="footer-bottom-badge">🌺 Authentic Sri Lankan Kavili</span>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/94701755235?text=Hi%20Kavum%20Gedara!%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8E%89" target="_blank" class="float-wa" title="Order on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
